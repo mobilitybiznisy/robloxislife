@@ -2,7 +2,7 @@
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+  color: white;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -17,4 +17,12 @@ code {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+body {
+  background-color: #141414;
+}
+
+h1, p, li, a {
+    color: white;
 }
