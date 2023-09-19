@@ -230,4 +230,4 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
-ClienApp/.angular/cache
+ClientApp/.angular/cache

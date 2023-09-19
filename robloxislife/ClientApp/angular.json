@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "robloxislife"
+  "defaultProject": "robloxislife",
+  "cli": {
+    "analytics": "0b8edc27-75e4-4a4e-8081-42751d8dfe24"
+  }
 }
