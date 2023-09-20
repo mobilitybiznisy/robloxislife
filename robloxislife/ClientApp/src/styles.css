@@ -21,8 +21,6 @@ code {
 
 body {
   background-color: #141414;
+  color: papayawhip;
 }
 
-h1, p, li, a {
-    color: white;
-}

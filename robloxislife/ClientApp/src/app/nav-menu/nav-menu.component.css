@@ -4,6 +4,65 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+
+a {
+  background: #ff0000;
+  color: papayawhip;
+  border-radius: 25px;
+  padding: 10px;
+
+  animation-name: lgbt;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes lgbt {
+  0% {
+    background-color: red;
+  }
+
+  20% {
+      background-color: orange;
+  }
+
+  40% {
+    background-color: yellow;
+  }
+
+  60% {
+    background-color: lawngreen;
+  }
+
+  80% {
+    background-color: darkslateblue;
+  }
+
+  100% {
+      background-color: purple;
+  }
+}
+
+header {
+  background: #b6ff00;
+  color: forestgreen;
+}
+
+li {
+  background: #0026ff;
+  color: papayawhip;
+}
+
+ul {
+  background: #ff48b4;
+  color: papayawhip;
+}
+
+div {
+  background: #808080;
+  color: papayawhip;
+}
+
 html {
   font-size: 14px;
 }
