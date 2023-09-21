@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using robloxislife.Data.Migrations;
+using robloxislife.DTO;
 
 namespace robloxislife.Controllers
 {
@@ -10,7 +11,8 @@ namespace robloxislife.Controllers
         [HttpGet("{Id}/xp")]
         public IActionResult GetUserXp(string Username)
         {
-            var UserXp = 
+            UserDTO neviem = new UserDTO();
+            var UserXp = neviem;
         }
     }
 }
