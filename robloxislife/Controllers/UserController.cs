@@ -18,7 +18,7 @@ namespace robloxislife.Controllers
         }
 
         [HttpGet("{id}/xp-guild")]
-        public async Task<IActionResult> GetUserXpAndGuild(int id)
+        public async Task<IActionResult> GetUserXpAndGuild(string id)
         {
             try
             {
@@ -29,10 +29,10 @@ namespace robloxislife.Controllers
 
                 if (user == null)
                 {
-                    return NotFound(); // Užívateľ neexistuje
+                    return NotFound();
                 }
 
-                return Ok(user); // Vráti XP a Guild užívateľa
+                return Ok(user);
             }
             catch (Exception ex)
             {

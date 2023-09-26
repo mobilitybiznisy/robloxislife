@@ -23,13 +23,13 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="Controllers\api\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="Controllers\api\**" />
+    <EmbeddedResource Remove="Controllers\api\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="Controllers\api\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\api\" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
