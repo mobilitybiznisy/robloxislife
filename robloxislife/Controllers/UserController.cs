@@ -23,8 +23,8 @@ namespace robloxislife.Controllers
             try
             {
                 var user = await _context.Users
-                    .Where(u => u.Id == u.Id)
-                    .Select(u => new { Xp = u.xp, Guild = u.Guild })
+                    .Where(u => u.Id == id)
+                    .Select(u => new { Xp = u.xp, Guild = u.guild })
                     .FirstOrDefaultAsync();
 
                 if (user == null)

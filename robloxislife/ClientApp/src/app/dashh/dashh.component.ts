@@ -10,7 +10,8 @@ export class DashhComponent {
   public xpguilds: UserData;
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    const id = '78ae254d-c70d-4707-88b5-8ec20878f2c6'
+   // const sovikus = "f02379c3-2ad5-451c-8429-25205ab7dddb";
+    const id = "78ae254d-c70d-4707-88b5-8ec20878f2c6";
     http.get<UserData>(baseUrl + `api/users/${id}/xp-guild`).subscribe(result => {
       this.xpguilds = result;
     }, error => console.error(error));
@@ -19,5 +20,5 @@ export class DashhComponent {
 
 interface UserData {
   xp: number;
-  Guild: string;
+  guild: string;
 }

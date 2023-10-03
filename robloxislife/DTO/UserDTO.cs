@@ -5,6 +5,6 @@ namespace robloxislife.DTO
     public class UserDTO
     {
         public int xp { get; set; }
-        public string? Guild { get; set; }
+        public string? guild { get; set; }
     }
 }
