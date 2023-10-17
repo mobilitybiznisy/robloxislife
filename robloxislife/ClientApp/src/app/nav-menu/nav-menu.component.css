@@ -6,9 +6,10 @@ a.navbar-brand {
 
 
 a {
+  margin: 2px;
   background: #ff0000;
   color: papayawhip;
-  border-radius: 25px;
+  border-radius: 20px;
   padding: 10px;
 
   animation-name: lgbt;
@@ -50,12 +51,12 @@ header {
 
 
 ul {
-  background: #ff48b4;
+  background: transparent;
   color: papayawhip;
 }
 
 div {
-  background: #808080;
+  background: #ffffff;
   color: papayawhip;
 }
 

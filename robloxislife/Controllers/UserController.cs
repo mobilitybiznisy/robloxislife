@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using IdentityModel.Client;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using robloxislife.Data;
 using robloxislife.Data.Migrations;
 using robloxislife.DTO;
+using robloxislife.Models;
+using System.Security.Claims;
 
 namespace robloxislife.Controllers
 {
-    [Route("api/users")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -17,28 +20,28 @@ namespace robloxislife.Controllers
             _context = context;
         }
 
-        [HttpGet("{id}/xp-guild")]
-        public async Task<IActionResult> GetUserXpAndGuild(string id)
+        [HttpGet]
+        public ActionResult<ApplicationUser> Get()
         {
-            try
-            {
+            var currentUser = GetCurrentUser();
 
-                var user = await _context.Users
-                    .Where(u => u.Id == id)
-                    .Select(u => new { Xp = u.xp, Guild = u.guild , id = u.Id})
-                    .FirstOrDefaultAsync();
+            var info = new ApplicationUser
+            { xp = currentUser.xp
+            };
 
-                if (user == null)
-                {
-                    return NotFound();
-                }
+            return info;
 
-                return Ok(user);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal server error: {ex}");
-            }
+        }
+
+        private Models.ApplicationUser GetCurrentUser()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            Models.ApplicationUser? user = _context.Users
+                .Include(user => user.guild)
+                .SingleOrDefault(user => user.Id == userId);
+
+            return user!;
         }
     }
 }
