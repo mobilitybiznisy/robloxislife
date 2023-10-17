@@ -13,6 +13,7 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { DashhComponent } from './dashh/dashh.component';
+import { GuildsComponent } from './guilds/guilds.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DashhComponent } from './dashh/dashh.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
-      { path: 'dashh', component: DashhComponent},
+      { path: 'dashh', component: DashhComponent },
+      { path: 'guilds', component: GuildsComponent}
     ])
   ],
   providers: [
