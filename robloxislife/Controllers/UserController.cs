@@ -21,15 +21,16 @@ namespace robloxislife.Controllers
         }
 
         [HttpGet]
-        public ActionResult<ApplicationUser> Get()
+        public ActionResult<UserDTO> Get()
         {
             var currentUser = GetCurrentUser();
 
-            var info = new ApplicationUser
-            { xp = currentUser.xp
+            var UserData = new UserDTO
+            { xp = currentUser.xp,
+             guild = currentUser.guild
             };
 
-            return info;
+            return UserData;
 
         }
 
@@ -38,7 +39,6 @@ namespace robloxislife.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             Models.ApplicationUser? user = _context.Users
-                .Include(user => user.guild)
                 .SingleOrDefault(user => user.Id == userId);
 
             return user!;
