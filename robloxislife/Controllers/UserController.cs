@@ -27,7 +27,7 @@ namespace robloxislife.Controllers
 
             var UserData = new UserDTO
             { xp = currentUser.xp,
-             guild = currentUser.guild
+             guild = currentUser.Guilds.Name
             };
 
             return UserData;
@@ -39,6 +39,7 @@ namespace robloxislife.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             Models.ApplicationUser? user = _context.Users
+                .Include(user => user.Guilds)
                 .SingleOrDefault(user => user.Id == userId);
 
             return user!;

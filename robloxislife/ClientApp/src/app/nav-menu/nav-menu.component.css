@@ -45,7 +45,7 @@ a {
 }
 
 header {
-  background: #b6ff00;
+  background: #141414;
   color: forestgreen;
 }
 
@@ -56,8 +56,7 @@ ul {
 }
 
 div {
-  background: #ffffff;
-  color: papayawhip;
+  background: transparent;
 }
 
 html {
@@ -71,4 +70,9 @@ html {
 
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.navbar-brand{
+    font-family: 'Times New Roman';
+    font-size: 32px;
 }
