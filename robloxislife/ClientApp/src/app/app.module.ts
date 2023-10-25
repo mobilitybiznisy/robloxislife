@@ -22,7 +22,8 @@ import { GuildsComponent } from './guilds/guilds.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    DashhComponent
+    DashhComponent,
+    GuildsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
