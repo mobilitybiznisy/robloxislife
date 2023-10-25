@@ -1,0 +1,23 @@
+.nav-item {
+  display: inline-block;
+  position: relative;
+  color: whitesmoke;
+}
+
+  .nav-item::after {
+    content: "bootstrap LL";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1.5px;
+    top: 29px;
+    left: 0;
+    background-color: whitesmoke;
+    transform-origin: bottom right;
+    transition: transform 0.5s ease-in-out;
+  }
+
+.nav-item:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

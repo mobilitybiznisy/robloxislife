@@ -32,6 +32,18 @@
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="ClientApp\src\assets\okbro.gif" />
+    <None Remove="ClientApp\src\assets\tady.gif" />
+    <None Remove="ClientApp\src\assets\UAAAH.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="ClientApp\src\assets\okbro.gif" />
+    <Resource Include="ClientApp\src\assets\tady.gif" />
+    <Resource Include="ClientApp\src\assets\UAAAH.gif" />
+  </ItemGroup>
+
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
