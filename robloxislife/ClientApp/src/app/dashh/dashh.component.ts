@@ -14,7 +14,7 @@ export class DashhComponent {
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     const sovikus = "f02379c3-2ad5-451c-8429-25205ab7dddb";
     const qwert = "78ae254d-c70d-4707-88b5-8ec20878f2c6";
-    http.get<UserData>(baseUrl + "api/user").subscribe(result => {
+    http.get<UserData>(baseUrl + "user").subscribe(result => {
       this.xpguilds = result;
     }, error => console.error(error));
   }

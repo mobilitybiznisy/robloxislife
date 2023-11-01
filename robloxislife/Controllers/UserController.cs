@@ -9,7 +9,7 @@ using System.Security.Claims;
 
 namespace robloxislife.Controllers
 {
-    [Route("api/user")]
+    [Route("[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -27,7 +27,7 @@ namespace robloxislife.Controllers
 
             var UserData = new UserDTO
             { xp = currentUser.xp,
-             guild = currentUser.Guilds.Name
+              guild = currentUser.Guilds != null ? currentUser.Guilds.Name : null
             };
 
             return UserData;

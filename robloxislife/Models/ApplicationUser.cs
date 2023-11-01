@@ -6,7 +6,7 @@ namespace robloxislife.Models
     public class ApplicationUser : IdentityUser
     {
         public int xp {  get; set; }
-       public Guilds? Guilds { get; set; } = null!;
+       public Guilds? Guilds { get; set; } 
 
     }
 }
