@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 
+
 @Component({
   selector: 'app-guilds',
   templateUrl: './guilds.component.html',
-  styleUrls: ['./guilds.component.css']
+  styleUrls: ['./guilds.component.css'],
 })
 export class GuildsComponent {
   public GuildData: Guilds[] = [];
@@ -20,6 +21,6 @@ interface Guilds {
   id: number;
   name: string;
   description: string;
-  maxMembers: number;
+  maxMebers: number;
   membersCount: number;
 }
