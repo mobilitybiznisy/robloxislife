@@ -1,6 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Provide sufficient contrast against white background */
+
+@font-face {
+  font-family: "PrintLiClearly-GGP";
+  src: url('../../wwwroot/PrintClearly-GGP.ttf');
+}
+
+@font-face {
+  font-family: "PrintBold-J5o";
+  src: url('../../wwwroot/PrintBold-J5o.ttf');
+}
+
 a {
   color: white;
 }
@@ -20,7 +31,9 @@ code {
 }
 
 body {
-  background-color: #141414;
+    font-family: PrintBold-J5o;
+  background-color: #232323;
   color: papayawhip;
 }
+
 

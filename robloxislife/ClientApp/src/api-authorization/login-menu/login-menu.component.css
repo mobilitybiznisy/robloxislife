@@ -2,20 +2,30 @@
   display: inline-block;
   position: relative;
   color: whitesmoke;
+  font-size: 22px;
 }
 
-  .nav-item::after {
-    content: "bootstrap LL";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 1.5px;
-    top: 29px;
-    left: 0;
-    background-color: whitesmoke;
-    transform-origin: bottom right;
-    transition: transform 0.5s ease-in-out;
-  }
+@font-face {
+  font-family: "PrintBold-J5o";
+  src: url('../../../../wwwroot/PrintBold-J5o.ttf');
+}
+
+body{
+    font-family: PrintBold-J5o;
+}
+
+.nav-item::after {
+  content: "bootstrap LL";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.5px;
+  top: 32px;
+  left: 0;
+  background-color: whitesmoke;
+  transform-origin: bottom right;
+  transition: transform 0.5s ease-in-out;
+}
 
 .nav-item:hover::after {
   transform: scaleX(1);

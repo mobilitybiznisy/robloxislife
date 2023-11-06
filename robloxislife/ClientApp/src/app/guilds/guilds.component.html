@@ -1,14 +1,9 @@
-<div class="accordion huhu" id="accordionExample">
-  <div class="accordion-item text-l bg-d huhu" *ngFor="let brawlstars of GuildData; let i = index">
-    <h2 class="accordion-header text-l bg-d huhu" [attr.id]="'heading' + i">
-      <button class="accordion-button collapsed text-l bg-d huhu" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" [attr.aria-controls]="'#collapse' + i">
-        <strong>{{ brawlstars.name }}</strong>&nbsp; [{{ brawlstars.membersCount }}/{{ brawlstars.maxMebers }}]
+<div class="huhu zarov">
+  <div class="text-l bg-d huhu" *ngFor="let brawlstars of GuildData; let i = index">
+    <h2 class="huhu">
+      <button class="huhu">
+        <strong>{{ brawlstars.name }}</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ brawlstars.membersCount }} / {{ brawlstars.maxMebers }}
       </button>
     </h2>
-    <div [attr.id]="'collapse' + i" class="accordion-collapse collapse text-l bg-d huhu" [attr.aria-labelledby]="'#heading' + i" data-bs-parent="#accordionExample">
-      <div class="accordion-body text-l bg-d huhu">
-
-      </div>
-    </div>
   </div>
 </div>

@@ -42,7 +42,9 @@ namespace robloxislife.Controllers
         {
             IQueryable<ApplicationUser> users = _context.Users.Include(applicationUser => applicationUser.Guilds).AsNoTracking();
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             return users.Where(u => u.Guilds.Id == guildId).Count();
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
 
         }
