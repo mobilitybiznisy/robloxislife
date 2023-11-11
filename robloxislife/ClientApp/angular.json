@@ -100,7 +100,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [ "skriptiky/zobrazko.js"]
           }
         },
         "server": {
