@@ -1,9 +1,21 @@
-<div class="huhu zarov">
-  <div class="text-l bg-d huhu" *ngFor="let brawlstars of GuildData; let i = index">
-    <h2 class="huhu">
-      <button class="huhu">
-        <strong>{{ brawlstars.name }}</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ brawlstars.membersCount }} / {{ brawlstars.maxMebers }}
-      </button>
-    </h2>
-  </div>
-</div>
+<!--
+
+-->
+
+  <div class="flex-container"  *ngFor="let brawlstars of GuildData; let i = index">
+
+    <div class="flex-child nazov">
+      {{ brawlstars.name }}
+    </div>
+
+    <div class="flex-child pocet">
+      {{ brawlstars.membersCount }} / {{ brawlstars.maxMebers }}
+    </div>
+
+    </div>
+
+
+<!--
+  "
+  {{ brawlstars.name }} {{ brawlstars.membersCount }} {{ brawlstars.maxMebers }}
+-->

@@ -1,11 +1,20 @@
-.huhu{
-background-color: #141414;
-color: whitesmoke;
+.flex-container {
+  display: flex;
+  border: groove;
+  border-width: 5px;
+  border-color: seagreen;
+  margin : 10px 0px 10px 0px;
+  padding: 0px 10px 0px 10px;
 }
 
-.zarov {
-    margin-left: 0;
-    left: 0;
-    right: 0;
+.flex-child {
+  flex: 0.5;
 }
 
+  .flex-child:first-child {
+    margin-right: 20px;
+  }
+
+.pocet, .nazov {
+    font-size: 32px;
+}
