@@ -1,7 +1,4 @@
 <!--
-
--->
-
   <div class="flex-container"  *ngFor="let brawlstars of GuildData; let i = index">
 
     <div class="flex-child nazov">
@@ -12,10 +9,28 @@
       {{ brawlstars.membersCount }} / {{ brawlstars.maxMebers }}
     </div>
 
+    <div class="flex-child opis">
+      igen magyar istenem pllastikus tevé
     </div>
-
-
+    </div>
+-->
 <!--
   "
   {{ brawlstars.name }} {{ brawlstars.membersCount }} {{ brawlstars.maxMebers }}
 -->
+
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item" *ngFor="let brawlstars of GuildData; let i = index">
+    <h2 class="accordion-header" [attr.id]="'heading' + i">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" [attr.aria-controls]="'#collapse' + i">
+        <strong>{{ brawlstars.name }}</strong>&nbsp; [{{ brawlstars.membersCount }}/{{ brawlstars.maxMebers }}]
+      </button>
+    </h2>
+    <div [attr.id]="'collapse' + i" class="accordion-collapse collapse" [attr.aria-labelledby]="'#heading' + i" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        tutok bude desc
+      </div>
+    </div>
+  </div>
+</div>
