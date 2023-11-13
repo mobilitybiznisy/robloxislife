@@ -20,3 +20,23 @@
     font-size: 32px;
 }
     */
+.accordion{
+    background-color: transparent;
+}
+
+.accordion-item {
+  background-color: #191919;
+  color: gray;
+  font-size: 1.4rem;
+}
+
+
+
+
+.accordion-button {
+  background-color: #141414;
+  color: whitesmoke;
+  font-size: 1.6rem;
+}
+
+
