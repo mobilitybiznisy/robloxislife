@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./guild-pages.component.css']
 })
 export class GuildPagesComponent {
+  public GuildData: Guilds[] = [];
 
+}
+
+interface Guilds {
+  id: number;
+  name: string;
+  description: string;
+  maxMebers: number;
+  membersCount: number;
 }

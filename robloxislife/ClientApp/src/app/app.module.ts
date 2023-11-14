@@ -40,7 +40,7 @@ import { GuildPagesComponent } from './guild-pages/guild-pages.component';
       { path: 'dashh', component: DashhComponent },
       { path: 'guilds', component: GuildsComponent },
       { path: '', component: GuildPagesComponent },
-      { path: 'guilds/:guildsId', component: GuildPagesComponent },
+      { path: 'guilds/:Id', component: GuildPagesComponent },
     ]),
     BrowserAnimationsModule
   ],
