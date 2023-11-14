@@ -10,7 +10,7 @@
   src: url('../../../../wwwroot/PrintBold-J5o.ttf');
 }
 
-body{
+body, a, title{
     font-family: PrintBold-J5o;
 }
 

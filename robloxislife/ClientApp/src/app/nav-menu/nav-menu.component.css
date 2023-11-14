@@ -1,5 +1,6 @@
 a.navbar-brand {
   white-space: normal;
+  rotate: 4deg;
   text-align: center;
   word-break: break-all;
 }
