@@ -14,6 +14,7 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { DashhComponent } from './dashh/dashh.component';
 import { GuildsComponent } from './guilds/guilds.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { GuildsComponent } from './guilds/guilds.component';
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
       { path: 'dashh', component: DashhComponent },
       { path: 'guilds', component: GuildsComponent}
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
