@@ -6,11 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./guild-pages.component.css']
 })
 export class GuildPagesComponent {
-  public GuildData: Guilds[] = [];
+  public GuildInfoData: GuildsInfo[] = [];
 
 }
 
-interface Guilds {
+interface GuildsInfo {
   id: number;
   name: string;
   description: string;
