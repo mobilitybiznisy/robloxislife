@@ -15,6 +15,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { DashhComponent } from './dashh/dashh.component';
 import { GuildsComponent } from './guilds/guilds.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GuildPagesComponent } from './guild-pages/guild-pages.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CounterComponent,
     FetchDataComponent,
     DashhComponent,
-    GuildsComponent
+    GuildsComponent,
+    GuildPagesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,7 +38,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
       { path: 'dashh', component: DashhComponent },
-      { path: 'guilds', component: GuildsComponent}
+      { path: 'guilds', component: GuildsComponent },
+      { path: '', component: GuildPagesComponent },
+      { path: 'guilds/:guildsId', component: GuildPagesComponent },
     ]),
     BrowserAnimationsModule
   ],

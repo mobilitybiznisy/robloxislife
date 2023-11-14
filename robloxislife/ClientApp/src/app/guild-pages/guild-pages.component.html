@@ -1,0 +1,12 @@
+<div *ngFor="let guild of GuildData">
+
+  <h3>
+    <a [title]="guild.name + ' details'"
+       [routerLink]="['/guilds', guild.id]">
+      {{ guild.name }}
+    </a>
+  </h3>
+
+  <!-- . . . -->
+
+</div>
