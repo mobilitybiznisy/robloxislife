@@ -33,12 +33,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\assets\nuhuh.gif" />
     <None Remove="ClientApp\src\assets\okbro.gif" />
     <None Remove="ClientApp\src\assets\tady.gif" />
     <None Remove="ClientApp\src\assets\UAAAH.gif" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="ClientApp\src\assets\nuhuh.gif">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="ClientApp\src\assets\okbro.gif" />
     <Resource Include="ClientApp\src\assets\tady.gif" />
     <Resource Include="ClientApp\src\assets\UAAAH.gif" />
