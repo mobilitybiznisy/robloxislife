@@ -8,9 +8,8 @@
     </h2>
     <div [attr.id]="'collapse' + i" class="accordion-collapse collapse" [attr.aria-labelledby]="'#heading' + i" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <a routerLink="/guilds/:guildsId">
-          <button class="tlacitko timko">DETAILS</button>
-        </a>  <br />
+        <button class="tlacitko timko" [routerLink]="['/guilds', brawlstars.id]"> DETAILS
+        </button>  <br />
 
 
         {{brawlstars.description}}
