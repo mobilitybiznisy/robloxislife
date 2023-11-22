@@ -8,16 +8,16 @@ import { Component, Inject } from '@angular/core';
   styleUrls: ['./guilds.component.css'],
 })
 export class GuildsComponent {
-  public GuildData: Guilds[] = [];
+  public GuildData: GuildDTO[] = [];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get < Guilds[]>(baseUrl + 'Guilds').subscribe(result => {
+    http.get < GuildDTO[]>(baseUrl + 'Guilds').subscribe(result => {
       this.GuildData = result;
     }, error => console.error(error));
   }
 }
 
-interface Guilds {
+interface GuildDTO {
   id: number;
   name: string;
   description: string;

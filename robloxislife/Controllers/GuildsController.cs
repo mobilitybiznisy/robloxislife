@@ -7,6 +7,7 @@ using robloxislife.DTO;
 using robloxislife.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Security.Claims;
 using System.Threading.Tasks; // Add this line
 
@@ -39,6 +40,29 @@ namespace robloxislife.Controllers
 
             
         }
+
+        [HttpGet]
+        [Route("getGuildById")]
+
+        public GuildDTO GetGuildById(int id)
+        {
+            Guilds guild = _context.Guild.Where(guild => guild.Id == id).FirstOrDefault();
+
+            if (guild != null)
+                return new GuildDTO
+                {
+                    Id = guild.Id,
+                    Name = guild.Name,
+                    Description = guild.Description,
+                    MaxMebers = guild.MaxMebers,
+                    MembersCount = GetGuildmembersCount(guild.Id)
+                };
+            else
+            {
+                return null;
+            }
+        }
+
         private int GetGuildmembersCount(int guildId)
         {
             IQueryable<ApplicationUser> users = _context.Users.Include(applicationUser => applicationUser.Guilds).AsNoTracking();
@@ -49,7 +73,7 @@ namespace robloxislife.Controllers
 
 
         }
-
+        /*
         public IEnumerable<Guilds> GetGuildId()
         {
             IEnumerable<Guilds> Guilds = _context.Guild;
@@ -61,6 +85,7 @@ namespace robloxislife.Controllers
 
 
         }
+        */
     }
 }
 

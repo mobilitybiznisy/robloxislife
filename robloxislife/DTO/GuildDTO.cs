@@ -6,5 +6,6 @@
         public string? Name { get; set; } = default!;
         public string? Description { get; set; } = null;
         public int MaxMebers { get; set; } = default!;
+        public int MembersCount { get; set; } = default!;
     }
 }
