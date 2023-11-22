@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-guild-pages',
@@ -6,11 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./guild-pages.component.css']
 })
 export class GuildPagesComponent {
-  public GuildInfoData: GuildsInfo[] = [];
+  public CurrentGuild: Guilds[] = [];
+
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    http.get<Guilds[]>(baseUrl + 'GuildsId').subscribe(result => {
+      this.CurrentGuild = result;
+    }, error => console.error(error));
+    
+  }
+
 
 }
-
-interface GuildsInfo {
+interface Guilds {
   id: number;
   name: string;
   description: string;

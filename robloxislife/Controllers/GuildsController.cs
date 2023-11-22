@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore; // Add this line
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using robloxislife.Data;
 using robloxislife.DTO;
 using robloxislife.Models;
@@ -45,6 +46,18 @@ namespace robloxislife.Controllers
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
             return users.Where(u => u.Guilds.Id == guildId).Count();
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
+
+
+        }
+
+        public IEnumerable<Guilds> GetGuildId()
+        {
+            IEnumerable<Guilds> Guilds = _context.Guild;
+            return Guilds.Select(Guilds => new Guilds
+            {
+                Id = Guilds.Id,
+            });
+
 
 
         }
