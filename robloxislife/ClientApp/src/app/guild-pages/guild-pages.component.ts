@@ -22,9 +22,10 @@ export class GuildPagesComponent {
     this.guild = {} as GuildDTO;
   }
 
+
   ngOnInit(): void {
     const RouteParams = this.route.snapshot.paramMap;
-    this.neviem = Number(RouteParams.get('id'));
+    this.neviem = Number(RouteParams.get('Id'));
     this.guildService.GetGuildInfo(this.neviem).subscribe(guild => { this.guild = guild });
   }
 
