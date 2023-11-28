@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "PrintBold-J5o";
+  src: url('../../../../wwwroot/PrintBold-J5o.ttf');
+}
+.tlacitko {
+  font-family: PrintBold-J5o;
+  border-style: solid;
+  border-color: #252525;
+  font-size: 1.5rem;
+  rotate: 5deg;
+  border-radius: 0.5rem;
+  border-width: 0.2rem;
+  color: #141414;
+}
+
+@keyframes lgbt {
+  0% {
+    background-color: red;
+  }
+
+  20% {
+    background-color: orange;
+  }
+
+  40% {
+    background-color: yellow;
+  }
+
+  60% {
+    background-color: lawngreen;
+  }
+
+  80% {
+    background-color: darkslateblue;
+  }
+
+  100% {
+    background-color: purple;
+  }
+}
+
+.timko {
+  animation-name: lgbt;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
