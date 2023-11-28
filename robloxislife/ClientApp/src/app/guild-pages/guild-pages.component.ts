@@ -13,6 +13,7 @@ import { GuildService } from '../srvc/guild.service';
 export class GuildPagesComponent {
   neviem: number = 0;
   guild: GuildDTO | undefined;
+    guildUsers: UserDTO[];
 
   constructor(private route: ActivatedRoute,
     http: HttpClient,
@@ -27,15 +28,34 @@ export class GuildPagesComponent {
     const RouteParams = this.route.snapshot.paramMap;
     this.neviem = Number(RouteParams.get('Id'));
     this.guildService.GetGuildInfo(this.neviem).subscribe(guild => { this.guild = guild });
+
+    this.guildService.getUsersInCertainGuild(this.neviem).subscribe(result => {
+      this.guildUsers = result;
+    }, error => console.error(error));
+  };
+
+
+
+  OnJoin() {
+    this.guildService.joinGuild(this.neviem).subscribe();
+    location.reload();
   }
-
+  OnLeave() {
+    this.guildService.leaveGuild();
+    location.reload();
+  }
 }
-
 interface GuildDTO {
   id: number;
   name: string;
   description: string;
   maxMebers: number;
   membersCount: number;
+}
+interface UserDTO {
+  name: string;
+  Email: string;
+  xp: number;
+  guild: string;
 }
 

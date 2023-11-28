@@ -15,6 +15,22 @@ export class GuildService {
 
     return this.http.get<GuildDTO>(this.baseUrl + 'guilds/getGuildById', { params: queryParams });
   }
+
+  joinGuild(id: number) {
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("id", id);
+
+    return this.http.put<any>(this.baseUrl + 'user/joinGuild', null, { params: queryParams });
+  }
+  leaveGuild() {
+   this.http.put<any>(this.baseUrl + 'user/leaveGuild', {}).subscribe()
+  }
+  getUsersInCertainGuild(id: number) {
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("id", id);
+
+    return this.http.get<UserDTO[]>(this.baseUrl +  'user/getUsersInGuild', { params: queryParams })
+  }
 }
 
 interface GuildDTO {
@@ -23,4 +39,11 @@ interface GuildDTO {
   description: string;
   maxMebers: number;
   membersCount: number;
+}
+
+interface UserDTO {
+  name: string;
+  Email: string;
+  xp: number;
+  guild: string;
 }

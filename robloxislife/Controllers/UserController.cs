@@ -5,12 +5,14 @@ using robloxislife.Data;
 using robloxislife.Data.Migrations;
 using robloxislife.DTO;
 using robloxislife.Models;
+using System;
 using System.Security.Claims;
 
 namespace robloxislife.Controllers
 {
-    [Route("[controller]")]
     [ApiController]
+    [Route("[controller]")]
+    
     public class UserController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -44,5 +46,55 @@ namespace robloxislife.Controllers
 
             return user!;
         }
+        [HttpPut]
+        [Route("joinGuild")]
+        public async Task<IActionResult> JoinGuild(int id)
+        {
+            var currentUser = GetCurrentUser();
+            var newGuild = await _context.Guild.FindAsync(id);
+
+            if (newGuild == null) 
+            {
+                return NotFound();
+            }
+
+            currentUser.Guilds = newGuild;
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+
+        [HttpPut]
+        [Route("leaveGuild")]
+        public async Task<IActionResult> LeaveGuild()
+        {
+            var currentUser = GetCurrentUser();
+
+            if (currentUser.Guilds == null) 
+            { 
+                return NotFound();
+            }
+
+            currentUser.Guilds = null;
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+        [HttpGet]
+        [Route("getUsersInGuild")]
+        public IEnumerable<UserDTO> GetGuildById(int id)
+        {
+            return _context.Users
+                .Include(user => user.Guilds)
+                .Where(user => user.Guilds.Id == id)
+                .Select(user => new UserDTO
+                {
+                    guild = user.Guilds.Name,
+                    name = user.UserName,
+                    Email = user.Email,
+                    xp = user.xp
+
+                    
+                });
+        }
+
     }
 }
