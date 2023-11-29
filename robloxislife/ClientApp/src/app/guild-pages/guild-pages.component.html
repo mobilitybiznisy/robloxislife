@@ -1,5 +1,21 @@
-<button class="tlacitko timko" (click)="OnLeave()">Leave</button>
-<button class="tlacitko timko" (click)="OnJoin()">Join</button>
-<div>
 
+<div>
+  <table class=" table table-dark table-striped-columns table-borderless">
+    <tr>
+      <th>Name</th>
+      <th>Mail</th>
+      <th>XP</th>
+      <img src="../../assets/andrej.png" height="200" width="400" />
+    </tr>
+    <tr *ngFor="let cavo of guildUsers">
+      <td>{{cavo.name}}</td>
+      <td>{{cavo.email}}</td>
+      <td>{{cavo.xp}}</td>
+      <td><img src="../../assets/andrej.png" height="61" width="200" /></td>
+    </tr>
+  </table>
+  <div>
+    <button class="tlacitko timko" (click)="OnLeave()">  Leave  </button>
+    <button class="tlacitko timko" (click)="OnJoin()">  Join  </button>
+  </div>
 </div>

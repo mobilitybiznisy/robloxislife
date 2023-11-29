@@ -54,7 +54,7 @@ interface GuildDTO {
 }
 interface UserDTO {
   name: string;
-  Email: string;
+  email: string;
   xp: number;
   guild: string;
 }

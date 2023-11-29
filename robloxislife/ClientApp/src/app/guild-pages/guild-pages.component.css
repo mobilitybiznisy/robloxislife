@@ -6,11 +6,28 @@
   font-family: PrintBold-J5o;
   border-style: solid;
   border-color: #252525;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   rotate: 5deg;
   border-radius: 0.5rem;
   border-width: 0.2rem;
   color: #141414;
+  margin: 10px;
+}
+
+table {
+  font-family: PrintBold-J5o;
+  font-size: 1.7rem;
+
+}
+
+th {
+  background-color: rgba(0, 0, 0, 0.40);
+  padding: 10px;
+}
+
+td {
+  background-color: rgba(0, 0, 0, 0.15);
+  padding: 10px;
 }
 
 @keyframes lgbt {
@@ -44,4 +61,9 @@
   animation-duration: 4s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+.rozostup {
+    margin: 20px;
+    padding: 20px;
 }
