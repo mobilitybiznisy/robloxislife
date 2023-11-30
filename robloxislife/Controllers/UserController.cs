@@ -89,7 +89,7 @@ namespace robloxislife.Controllers
                 {
                     guild = user.Guilds.Name,
                     name = user.UserName,
-                    Email = user.Email,
+                    email = user.Email,
                     xp = user.xp
 
                     
