@@ -86,7 +86,7 @@ namespace robloxislife.Controllers
 
         [HttpPut]
         [Route("leaveGuild")]
-        public async Task<IActionResult> LeaveGuild()
+        public ActionResult LeaveGuild()
         {
             var currentUser = GetCurrentUser();
 
@@ -96,9 +96,10 @@ namespace robloxislife.Controllers
             }
 
             currentUser.Guilds = null;
-            await _context.SaveChangesAsync();
+            _context.SaveChangesAsync();
             return NoContent();
         }
+
         [HttpGet]
         [Route("getUsersInGuild")]
         public IEnumerable<UserDTO> GetGuildById(int id)
