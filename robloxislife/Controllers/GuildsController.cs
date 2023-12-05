@@ -25,16 +25,16 @@ namespace robloxislife.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Guilds> GetGuildList()
+        public IEnumerable<GuildDTO> GetGuildList()
         {
             IEnumerable<Guilds> Guilds = _context.Guild;
-            return Guilds.Select(Guilds => new Guilds
+            return Guilds.Select(Guilds => new GuildDTO
             {
                 Id = Guilds.Id,
                 Name = Guilds.Name,
                 Description = Guilds.Description,
                 MaxMebers = Guilds.MaxMebers,
-                MembersCount = GetGuildmembersCount(Guilds.Id)
+                MembersCount = GetGuildmembers(Guilds.Id).Count(),
             });      
             
 
@@ -44,32 +44,38 @@ namespace robloxislife.Controllers
         [HttpGet]
         [Route("getGuildById")]
 
-        public GuildDTO GetGuildById(int id)
+        public GuildDetailDTO GetGuildById(int id)
         {
             Guilds guild = _context.Guild.Where(guild => guild.Id == id).FirstOrDefault();
 
             if (guild != null)
-                return new GuildDTO
+            { 
+                var guildMembers = GetGuildmembers(guild.Id);
+                return new GuildDetailDTO
                 {
                     Id = guild.Id,
                     Name = guild.Name,
                     Description = guild.Description,
                     MaxMebers = guild.MaxMebers,
-                    MembersCount = GetGuildmembersCount(guild.Id)
+                    MembersCount = guildMembers.Count(),
+                    Memberlist = guildMembers.Select(h => new UserDTO
+                    { name = h.UserName,
+                        xp = h.xp
+                    }).ToList(),
+
                 };
+            }
             else
             {
                 return null;
             }
         }
 
-        private int GetGuildmembersCount(int guildId)
+        private IEnumerable<ApplicationUser> GetGuildmembers(int guildId)
         {
             IQueryable<ApplicationUser> users = _context.Users.Include(applicationUser => applicationUser.Guilds).AsNoTracking();
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            return users.Where(u => u.Guilds.Id == guildId).Count();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            return users.Where(u => u.Guilds.Id == guildId);
 
 
         }

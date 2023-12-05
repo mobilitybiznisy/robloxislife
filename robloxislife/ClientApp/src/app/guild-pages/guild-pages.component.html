@@ -7,7 +7,7 @@
       <th>XP</th>
       <img src="../../assets/andrej.png" height="200" width="400" />
     </tr>
-    <tr *ngFor="let cavo of guildUsers">
+    <tr *ngFor="let cavo of guild().memberlist">
       <td>{{cavo.name}}</td>
       <td>{{cavo.email}}</td>
       <td>{{cavo.xp}}</td>

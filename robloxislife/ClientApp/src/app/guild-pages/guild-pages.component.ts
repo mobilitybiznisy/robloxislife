@@ -1,7 +1,7 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { GuildService } from '../srvc/guild.service';
+import { GuildService, GuildDetailDTO} from '../srvc/guild.service';
 
 @Component({
   selector: 'app-guild-pages',
@@ -12,37 +12,30 @@ import { GuildService } from '../srvc/guild.service';
 
 export class GuildPagesComponent {
   neviem: number = 0;
-  guild: GuildDTO | undefined;
-    guildUsers: UserDTO[];
+
+  guild = signal<GuildDetailDTO>(undefined);
 
   constructor(private route: ActivatedRoute,
     http: HttpClient,
     private guildService: GuildService,
     @Inject('BASE_URL') baseUrl: string
   ) {
-    this.guild = {} as GuildDTO;
   }
 
 
   ngOnInit(): void {
     const RouteParams = this.route.snapshot.paramMap;
     this.neviem = Number(RouteParams.get('Id'));
-    this.guildService.GetGuildInfo(this.neviem).subscribe(guild => { this.guild = guild });
-
-    this.guildService.getUsersInCertainGuild(this.neviem).subscribe(result => {
-      this.guildUsers = result;
-    }, error => console.error(error));
+    this.guildService.GetGuildInfo(this.neviem).subscribe(guild => this.guild.set(guild));
   };
 
 
 
   OnJoin() {
-    this.guildService.joinGuild(this.neviem).subscribe();
-    location.reload();
+    this.guildService.joinGuild(this.neviem).subscribe(guild => this.guild.set(guild));
   }
   OnLeave() {
     this.guildService.leaveGuild();
-    location.reload();
   }
 }
 interface GuildDTO {
@@ -52,6 +45,8 @@ interface GuildDTO {
   maxMebers: number;
   membersCount: number;
 }
+
+
 interface UserDTO {
   name: string;
   email: string;

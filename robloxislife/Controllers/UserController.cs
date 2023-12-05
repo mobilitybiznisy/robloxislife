@@ -48,10 +48,10 @@ namespace robloxislife.Controllers
         }
         [HttpPut]
         [Route("joinGuild")]
-        public async Task<IActionResult> JoinGuild(int id)
+        public ActionResult<GuildDetailDTO> JoinGuild(int id)
         {
             var currentUser = GetCurrentUser();
-            var newGuild = await _context.Guild.FindAsync(id);
+            var newGuild = _context.Guild.Find(id);
 
             if (newGuild == null) 
             {
@@ -59,8 +59,29 @@ namespace robloxislife.Controllers
             }
 
             currentUser.Guilds = newGuild;
-            await _context.SaveChangesAsync();
-            return NoContent();
+            _context.SaveChanges();
+            return Ok(new GuildDetailDTO
+            {
+                Id = newGuild.Id,
+                Name = newGuild.Name,
+                Description = newGuild.Description,
+                MaxMebers = newGuild.MaxMebers,
+                MembersCount = GetGuildmembers(newGuild.Id).Count(),
+                Memberlist = GetGuildmembers(newGuild.Id).Select(h => new UserDTO
+                {
+                    name = h.UserName,
+                    xp = h.xp
+                }).ToList(),
+            });
+        }
+
+        private IEnumerable<ApplicationUser> GetGuildmembers(int guildId)
+        {
+            IQueryable<ApplicationUser> users = _context.Users.Include(applicationUser => applicationUser.Guilds).AsNoTracking();
+
+            return users.Where(u => u.Guilds.Id == guildId);
+
+
         }
 
         [HttpPut]

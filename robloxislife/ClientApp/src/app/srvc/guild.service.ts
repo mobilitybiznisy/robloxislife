@@ -13,7 +13,7 @@ export class GuildService {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("id", id);
 
-    return this.http.get<GuildDTO>(this.baseUrl + 'guilds/getGuildById', { params: queryParams });
+    return this.http.get<GuildDetailDTO>(this.baseUrl + 'guilds/getGuildById', { params: queryParams });
   }
 
   joinGuild(id: number) {
@@ -39,8 +39,16 @@ interface GuildDTO {
   description: string;
   maxMebers: number;
   membersCount: number;
+  members: UserDTO[]
 }
-
+export interface GuildDetailDTO {
+  memberlist: UserDTO[];
+  id: number;
+  name: string;
+  description: string;
+  maxMebers: number;
+  membersCount: number;
+}
 interface UserDTO {
   name: string;
   email: string;
