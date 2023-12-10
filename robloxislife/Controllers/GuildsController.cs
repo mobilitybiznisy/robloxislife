@@ -79,19 +79,7 @@ namespace robloxislife.Controllers
 
 
         }
-        /*
-        public IEnumerable<Guilds> GetGuildId()
-        {
-            IEnumerable<Guilds> Guilds = _context.Guild;
-            return Guilds.Select(Guilds => new Guilds
-            {
-                Id = Guilds.Id,
-            });
 
-
-
-        }
-        */
     }
 }
 
