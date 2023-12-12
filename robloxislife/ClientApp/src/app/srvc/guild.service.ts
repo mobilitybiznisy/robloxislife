@@ -22,8 +22,11 @@ export class GuildService {
 
     return this.http.put<any>(this.baseUrl + 'user/joinGuild', null, { params: queryParams });
   }
-  leaveGuild() {
-   this.http.put<any>(this.baseUrl + 'user/leaveGuild', {}).subscribe()
+  leaveGuild(id: number) {
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("id", id);
+
+    return this.http.put<any>(this.baseUrl + 'user/leaveGuild', null, { params: queryParams });
   }
   getUsersInCertainGuild(id: number) {
     let queryParams = new HttpParams();

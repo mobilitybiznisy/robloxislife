@@ -35,7 +35,7 @@ export class GuildPagesComponent {
     this.guildService.joinGuild(this.neviem).subscribe(guild => this.guild.set(guild));
   }
   OnLeave() {
-    this.guildService.leaveGuild();
+    this.guildService.leaveGuild(this.neviem).subscribe(guild => this.guild.set(guild));
   }
 }
 interface GuildDTO {

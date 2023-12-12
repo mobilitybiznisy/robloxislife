@@ -86,18 +86,32 @@ namespace robloxislife.Controllers
 
         [HttpPut]
         [Route("leaveGuild")]
-        public ActionResult LeaveGuild()
+        public ActionResult LeaveGuild(int id)
+
         {
             var currentUser = GetCurrentUser();
+            var newGuild = _context.Guild.Find(id);
 
-            if (currentUser.Guilds == null) 
-            { 
+            if (newGuild == null)
+            {
                 return NotFound();
             }
 
             currentUser.Guilds = null;
-            _context.SaveChangesAsync();
-            return NoContent();
+            _context.SaveChanges();
+            return Ok(new GuildDetailDTO
+            {
+                Id = newGuild.Id,
+                Name = newGuild.Name,
+                Description = newGuild.Description,
+                MaxMebers = newGuild.MaxMebers,
+                MembersCount = GetGuildmembers(newGuild.Id).Count(),
+                Memberlist = GetGuildmembers(newGuild.Id).Select(h => new UserDTO
+                {
+                    name = h.UserName,
+                    xp = h.xp
+                }).ToList(),
+            });
         }
 
         [HttpGet]
