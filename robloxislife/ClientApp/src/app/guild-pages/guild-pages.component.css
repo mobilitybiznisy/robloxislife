@@ -14,6 +14,22 @@
   margin: 10px;
 }
 
+desc {
+    display: flex;
+    font-family: PrintBold-J5o;
+}
+
+.namee {
+  font-family: PrintBold-J5o;
+  font-size: 2.8rem;
+  text-decoration: underline;
+}
+
+.deesc {
+  font-family: PrintBold-J5o;
+  font-size: 1.8rem;
+}
+
 table {
   font-family: PrintBold-J5o;
   font-size: 1.7rem;
