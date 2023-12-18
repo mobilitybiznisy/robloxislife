@@ -16,6 +16,7 @@ import { DashhComponent } from './dashh/dashh.component';
 import { GuildsComponent } from './guilds/guilds.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GuildPagesComponent } from './guild-pages/guild-pages.component';
+import { GuildFormsComponent } from './guild-forms/guild-forms.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { GuildPagesComponent } from './guild-pages/guild-pages.component';
     FetchDataComponent,
     DashhComponent,
     GuildsComponent,
-    GuildPagesComponent
+    GuildPagesComponent,
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -41,6 +43,7 @@ import { GuildPagesComponent } from './guild-pages/guild-pages.component';
       { path: 'guilds', component: GuildsComponent },
       { path: '', component: GuildPagesComponent },
       { path: 'guilds/:Id', component: GuildPagesComponent },
+      { path: 'guild-forms', component: GuildFormsComponent}, 
     ]),
     BrowserAnimationsModule
   ],

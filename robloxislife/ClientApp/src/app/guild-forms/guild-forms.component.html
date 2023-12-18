@@ -1,0 +1,16 @@
+<form [formGroup]="GuildForm" (ngSubmit)="onSubmit()">
+  <label for="name">Name: </label>
+  <input id="name" type="text" maxlength="21" formControlName="name" />
+  <br />
+  <label for="desc">Description: </label>
+  <input id="desc" type="text" maxlength="1024" formControlName="description" />
+  <br />
+  <label for="maxnum">Maximum Members:</label>
+  <input id="maxnum" type="number" min="0" formControlName="maxMembers" />
+  <button type="submit" [disabled]="!GuildForm.valid">4 commity</button>
+</form>
+
+
+<!--
+<label for="maxnum">Maximum Members: </label>
+<input id="maxnum" type="number" [formControl]="maxnum"> -->
