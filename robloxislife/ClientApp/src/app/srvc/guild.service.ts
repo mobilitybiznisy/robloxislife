@@ -9,6 +9,16 @@ export class GuildService {
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
 
   }
+
+  CreateGuild(name: string, description: string, maxMembers: number) {
+    let queryParams = new HttpParams();
+    queryParams.append("guildName", this.CreateGuild[0]);
+    queryParams.append("description", this.CreateGuild[1]);
+    queryParams.append("maxMembers", this.CreateGuild[2]);
+    return this.http.put<CreateGUildDTO>(this.baseUrl + 'guilds/createGuild', { params: queryParams });
+
+  };
+
   GetGuildInfo(id: number) {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("id", id);
@@ -35,15 +45,6 @@ export class GuildService {
     return this.http.get<UserDTO[]>(this.baseUrl +  'user/getUsersInGuild', { params: queryParams })
   }
 }
-
-interface GuildDTO {
-  id: number;
-  name: string;
-  description: string;
-  maxMebers: number;
-  membersCount: number;
-  members: UserDTO[]
-}
 export interface GuildDetailDTO {
   memberlist: UserDTO[];
   id: number;
@@ -57,4 +58,10 @@ interface UserDTO {
   email: string;
   xp: number;
   guild: string;
+}
+
+export interface CreateGUildDTO {
+  guildName: string;
+  description: string;
+  maxMembers: number;
 }

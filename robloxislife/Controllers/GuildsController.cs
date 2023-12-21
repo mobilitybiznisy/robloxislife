@@ -35,10 +35,23 @@ namespace robloxislife.Controllers
                 Description = Guilds.Description,
                 MaxMebers = Guilds.MaxMebers,
                 MembersCount = GetGuildmembers(Guilds.Id).Count(),
-            });      
-            
+            });
 
-            
+
+
+        }
+
+        [HttpGet]
+        [Route("createGuild")]
+
+        public CreateGuildDTO createGuild(string name, string description, int maxMembers)
+        {
+            return new CreateGuildDTO
+            {
+                GuildName = name,
+                Description = description,
+                MaxMembers = maxMembers
+            };
         }
 
         [HttpGet]

@@ -19,8 +19,7 @@ export class GuildPagesComponent {
     http: HttpClient,
     private guildService: GuildService,
     @Inject('BASE_URL') baseUrl: string
-  ) {
-  }
+  ) { }
 
 
   ngOnInit(): void {
