@@ -41,10 +41,10 @@ namespace robloxislife.Controllers
 
         }
 
-        [HttpGet]
+        [HttpPut]
         [Route("createGuild")]
 
-        public CreateGuildDTO createGuild(string name, string description, int maxMembers)
+        public CreateGuildDTO createNewGuild(string name, string description, int maxMembers)
         {
             return new CreateGuildDTO
             {

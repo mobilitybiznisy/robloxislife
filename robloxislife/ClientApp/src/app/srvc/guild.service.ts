@@ -15,7 +15,7 @@ export class GuildService {
     queryParams.append("guildName", this.CreateGuild[0]);
     queryParams.append("description", this.CreateGuild[1]);
     queryParams.append("maxMembers", this.CreateGuild[2]);
-    return this.http.put<CreateGUildDTO>(this.baseUrl + 'guilds/createGuild', { params: queryParams });
+    return this.http.put <CreateGUildDTO[]>(this.baseUrl + 'guilds/createGuild', { params: queryParams });
 
   };
 
