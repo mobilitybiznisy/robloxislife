@@ -3,7 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { GuildService, CreateGUildDTO } from '../srvc/guild.service';
+import { GuildService, CreateGuildDTO } from '../srvc/guild.service';
 
 
 @Component({
@@ -15,7 +15,7 @@ import { GuildService, CreateGUildDTO } from '../srvc/guild.service';
 })
 export class GuildFormsComponent {
 
-  guildINFO = signal<CreateGUildDTO>(undefined);
+  guildINFO = signal<CreateGuildDTO>(undefined);
 
   constructor(private route: ActivatedRoute,
     http: HttpClient,
@@ -26,24 +26,25 @@ export class GuildFormsComponent {
   GuildForm = new FormGroup(
     {
       name: new FormControl('', Validators.required),
-      description : new FormControl(''),
+      description: new FormControl(''),
       maxMembers: new FormControl('', Validators.required),
     });
 
   onSubmit() {
 
     if (this.GuildForm.valid) {
-      this.guildService.CreateGuild(this.GuildForm.value[0], this.GuildForm.value[1], this.GuildForm.value[2]).subscribe(guildINFO => this.guildINFO.set(guildINFO));
-      console.log("funguje");
-      console.log(this.guildINFO);
-    }
+      this.guildService.CreateGuild({
 
-    else {
-      console.error("si to rozbil");
-    }
-
+        guildName: this.GuildForm.controls['name'].value,
+        description: this.GuildForm.controls['description'].value,
+        maxMembers: this.GuildForm.controls['maxMembers'].value,
+      }).subscribe();
+          
+     }
   }
 
 }
+
+
 
 
