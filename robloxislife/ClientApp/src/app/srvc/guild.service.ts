@@ -15,8 +15,8 @@ export class GuildService {
   RemoveGuild(id: number) {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("id", id);
-
-    return this.http.post(this.baseUrl + 'guilds/removeGuild', { params: queryParams });
+    console.log("aa");
+    return this.http.post(this.baseUrl + 'guilds/removeGuild', id);
   };
 
   GetGuildInfo(id: number) {
