@@ -58,6 +58,7 @@ namespace robloxislife.Controllers
             return guild;
         }
 
+
         [HttpGet]
         [Route("getGuildById")]
 
