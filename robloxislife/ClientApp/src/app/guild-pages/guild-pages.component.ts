@@ -28,7 +28,9 @@ export class GuildPagesComponent {
     this.guildService.GetGuildInfo(this.neviem).subscribe(guild => this.guild.set(guild));
   };
 
-
+  deletgild(): void {
+    this.guildService.RemoveGuild(this.neviem).subscribe(guild => this.guild.set(undefined));
+  }
 
   OnJoin() {
     this.guildService.joinGuild(this.neviem).subscribe(guild => this.guild.set(guild));

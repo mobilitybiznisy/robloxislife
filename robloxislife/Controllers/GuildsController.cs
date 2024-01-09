@@ -58,6 +58,16 @@ namespace robloxislife.Controllers
             return guild;
         }
 
+        [HttpPost]
+        [Route("removeGuild")]
+
+        public GuildDetailDTO removeGuild(string guildId)
+        {
+            _context.Remove(guildId);
+            _context.SaveChanges();
+            return null;
+        }
+
 
         [HttpGet]
         [Route("getGuildById")]
