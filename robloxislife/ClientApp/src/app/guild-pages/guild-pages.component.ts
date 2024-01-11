@@ -1,6 +1,6 @@
 import { Component, Inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GuildService, GuildDetailDTO} from '../srvc/guild.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class GuildPagesComponent {
   guild = signal<GuildDetailDTO>(undefined);
 
   constructor(private route: ActivatedRoute,
+    private router: Router,
     http: HttpClient,
     private guildService: GuildService,
     @Inject('BASE_URL') baseUrl: string
@@ -29,7 +30,7 @@ export class GuildPagesComponent {
   };
 
   deletgild(): void {
-    this.guildService.RemoveGuild(this.neviem).subscribe(guild => this.guild.set(null));
+    this.guildService.RemoveGuild(this.neviem).pipe().subscribe((response) => this.router.navigateByUrl('/guilds'));
   }
 
   OnJoin() {
@@ -38,6 +39,7 @@ export class GuildPagesComponent {
   OnLeave() {
     this.guildService.leaveGuild(this.neviem).subscribe(guild => this.guild.set(guild));
   }
+
 }
 interface GuildDTO {
   id: number;
