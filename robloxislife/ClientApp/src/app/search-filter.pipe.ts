@@ -1,20 +1,19 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { match } from 'assert';
+import { GuildDTO } from './guilds/guilds.component';
 
 @Pipe({
   name: 'searchFilter'
 })
 export class SearchFilterPipe implements PipeTransform {
 
-  transform(items: any[], searchTerm: string): any[] {
+  transform(items: GuildDTO[], searchTerm: string): GuildDTO[] {
     if (!searchTerm) {
       return items;
     }
-    return null;
-
-    const filteredItems: any[] = [];
+    return items.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    const filteredItems: GuildDTO[] = [];
     for (const item of items) {
-      const matches = item.toString().toLowerCase().match(new RegExp(`(${searchTerm.toLowerCase()})`, 'gi'));
+      const matches = item.name.toLowerCase().includes(searchTerm.toLowerCase());
 
       if (matches) {
         filteredItems.push(item);

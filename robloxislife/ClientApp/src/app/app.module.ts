@@ -17,6 +17,7 @@ import { GuildsComponent } from './guilds/guilds.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GuildPagesComponent } from './guild-pages/guild-pages.component';
 import { GuildFormsComponent } from './guild-forms/guild-forms.component';
+import { SearchFilterPipe } from './search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { GuildFormsComponent } from './guild-forms/guild-forms.component';
     DashhComponent,
     GuildsComponent,
     GuildPagesComponent,
+    SearchFilterPipe,
 
   ],
   imports: [

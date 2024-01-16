@@ -13,7 +13,7 @@ import { SearchFilterPipe } from 'src/app/search-filter.pipe';
 export class GuildsComponent {
   public GuildData: GuildDTO[] = [];
   constructor(
-    private searchFilterPipe: SearchFilterPipe,
+    // private searchFilterPipe: SearchFilterPipe,
     http: HttpClient,
     @Inject('BASE_URL') baseUrl: string  ) {
     http.get < GuildDTO[]>(baseUrl + 'Guilds').subscribe(result => {
@@ -21,18 +21,19 @@ export class GuildsComponent {
     }, error => console.error(error));
   }
 
-  items: any[] = [];
+  items: GuildDTO[] = [];
   searchTerm: string;
-  filteredItems: any[] = [];
-
+  filteredItems: GuildDTO[] = [];
+  /** 
   onSearchChange(event: any) {
     this.searchTerm = event.target.value;
 
     this.filteredItems = this.searchFilterPipe.transform(this.items, this.searchTerm);
   }
+  */
 }
 
-interface GuildDTO {
+export interface GuildDTO {
   id: number;
   name: string;
   description: string;
