@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { Pipe, PipeTransform } from '@angular/core';
-
+import { SearchFilterPipe } from 'src/app/search-filter.pipe';
 
 @Component({
   selector: 'app-guilds',
@@ -12,15 +12,24 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 export class GuildsComponent {
   public GuildData: GuildDTO[] = [];
-
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(
+    private searchFilterPipe: SearchFilterPipe,
+    http: HttpClient,
+    @Inject('BASE_URL') baseUrl: string  ) {
     http.get < GuildDTO[]>(baseUrl + 'Guilds').subscribe(result => {
       this.GuildData = result;
     }, error => console.error(error));
   }
 
+  items: any[] = [];
+  searchTerm: string;
+  filteredItems: any[] = [];
 
+  onSearchChange(event: any) {
+    this.searchTerm = event.target.value;
 
+    this.filteredItems = this.searchFilterPipe.transform(this.items, this.searchTerm);
+  }
 }
 
 interface GuildDTO {
