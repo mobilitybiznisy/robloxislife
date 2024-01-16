@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 
 @Component({
@@ -7,6 +8,8 @@ import { Component, Inject } from '@angular/core';
   templateUrl: './guilds.component.html',
   styleUrls: ['./guilds.component.css'],
 })
+
+
 export class GuildsComponent {
   public GuildData: GuildDTO[] = [];
 
@@ -15,6 +18,9 @@ export class GuildsComponent {
       this.GuildData = result;
     }, error => console.error(error));
   }
+
+
+
 }
 
 interface GuildDTO {
