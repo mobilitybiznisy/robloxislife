@@ -13,7 +13,6 @@ import { SearchFilterPipe } from 'src/app/search-filter.pipe';
 export class GuildsComponent {
   public GuildData: GuildDTO[] = [];
   constructor(
-    // private searchFilterPipe: SearchFilterPipe,
     http: HttpClient,
     @Inject('BASE_URL') baseUrl: string  ) {
     http.get < GuildDTO[]>(baseUrl + 'Guilds').subscribe(result => {
@@ -24,13 +23,6 @@ export class GuildsComponent {
   items: GuildDTO[] = [];
   searchTerm: string;
   filteredItems: GuildDTO[] = [];
-  /** 
-  onSearchChange(event: any) {
-    this.searchTerm = event.target.value;
-
-    this.filteredItems = this.searchFilterPipe.transform(this.items, this.searchTerm);
-  }
-  */
 }
 
 export interface GuildDTO {

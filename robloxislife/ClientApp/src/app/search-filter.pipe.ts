@@ -11,14 +11,5 @@ export class SearchFilterPipe implements PipeTransform {
       return items;
     }
     return items.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
-    const filteredItems: GuildDTO[] = [];
-    for (const item of items) {
-      const matches = item.name.toLowerCase().includes(searchTerm.toLowerCase());
-
-      if (matches) {
-        filteredItems.push(item);
-      }
-    }
-    return filteredItems;
   }
 }
