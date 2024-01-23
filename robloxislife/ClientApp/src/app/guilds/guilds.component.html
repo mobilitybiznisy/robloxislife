@@ -1,6 +1,7 @@
+<br />
 <div>
-  <input type="text"  placeholder="Search guild" [(ngModel)]="searchTerm"  #filter />
-</div>
+  <input id="ggg" type="text"  placeholder="dynamicky search brasko (dik Martin)" [(ngModel)]="searchTerm"  #filter />
+</div> <br /> <br />
 
 <div class="accordion" id="accordionExample">
     <div class="accordion-item" *ngFor="let brawlstars of GuildData | searchFilter: searchTerm; let i = index">
@@ -12,6 +13,7 @@
       </h2>
       <div [attr.id]="'collapse' + i" class="accordion-collapse collapse" [attr.aria-labelledby]="'#heading' + i" data-bs-parent="#accordionExample">
         <div class="accordion-body">
+          <img src="../../assets/napad.gif" width="150" height="60"/> <br />
           <button class="tlacitko timko" [routerLink]="['/guilds', brawlstars.id]">
             DETAILS
           </button>  <br />

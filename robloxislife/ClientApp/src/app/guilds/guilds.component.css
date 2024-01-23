@@ -65,3 +65,13 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+
+
+#ggg {
+  min-width: 300px;
+  min-height: 100px;
+  color: #171717;
+  background-image: url("../../assets/nuhuh.gif");
+  background-size:cover;
+  background-position:center;
+}
